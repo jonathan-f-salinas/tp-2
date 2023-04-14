@@ -6,7 +6,7 @@ router.get('/', docentesController.getAllDocentes)
 router.get('/:legajo', docentesController.getDocentesByLegajo)
 router.delete('/:legajo', docentesController.deleteDocentesByLegajo)
 router.post('/', docentesController.createdocente)
-//router.put('/:dni', alumnosController.updateAlumno )
+router.put('/:legajo', docentesController.updateDocente )
 
 
 module.exports = { router}

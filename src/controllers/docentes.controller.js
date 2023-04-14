@@ -51,6 +51,28 @@ const createdocente = (req, res) => {
     }
 }
 
+const updateDocente = (req, res)=>{
+    const legajo = req.params.legajo  //Path Parameter
+    const docentesData = req.body 
+    const indice = docentes.findIndex(docente => docente.legajo == legajo)
+    if ( indice >= 0 ) {
+        docentes[indice].nombre = docentesData.nombre
+        if (docentesData.concursado!==undefined) {
+            docentes[indice].concursado = docentesData.concursado 
+        }
+        res.status(201).json({"docente": docentes[indice]})
+    }
+    else {
+        res.status(404).
+        json(
+            {
+                resultado: "La operación de modicar no pudo ser realizada",
+                mensaje: `El docente con legajo ${legajo} no fue encontrado`
+            }
+        )
+    }
+}
+
  
 
 
@@ -59,5 +81,5 @@ module.exports = {
     getDocentesByLegajo,
     deleteDocentesByLegajo,
     createdocente,
-    /*updateAlumno*/
+    updateDocente
 }
