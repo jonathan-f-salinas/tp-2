@@ -5,8 +5,8 @@ const alumnosRouter = require('./routes/alumnos.route')
 const docentesRouter= require ('./routes/docentes.route')
 
 
-app.use(express.json())
-app.use('/alumnos', alumnosRouter.router)
+app.use(express.json()) //a la aplicación le permitimos usar .json
+app.use('/alumnos', alumnosRouter.router)//muestro lo que habia exportado de alumnos.router.js en la constante router 
 app.use('/docentes',docentesRouter.router)
 
 
