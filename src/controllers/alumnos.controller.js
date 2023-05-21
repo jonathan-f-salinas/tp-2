@@ -3,7 +3,7 @@ const alumnos = require('../../datos/alumnos.json')
 const getAllAlumnos = (req, res)=>{
     res.json( alumnos ).status(200)
 }
-
+// defino Endpoints: ruta para hacer solicitudes get
 const getAlumnoByDni = (req, res) => {
     const dni = req.params.dni
     const resultado = alumnos.find( alumno => alumno.dni == dni)
